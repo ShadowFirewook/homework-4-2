@@ -10,7 +10,7 @@ public class Main {
     public static int heroesDMG [] = {20,25,30};
     public static int roundNumber = 0;
     public static String bossDEF;
-    public static String heroesTypeATK [] = {"Физическая атака","Магическая атака","Кинетическая атака"};
+    public static String heroesTypeATK [] = {"Р¤РёР·РёС‡РµСЃРєР°СЏ Р°С‚Р°РєР°","РњР°РіРёС‡РµСЃРєР°СЏ Р°С‚Р°РєР°","РљРёРЅРµС‚РёС‡РµСЃРєР°СЏ Р°С‚Р°РєР°"};
     public static void main(String[] args) {
         statistics();
         while (!isGameFinished()){
@@ -30,21 +30,21 @@ public class Main {
         Random random = new Random();
         int randomIndex = random.nextInt(heroesTypeATK.length);
         bossDEF = heroesTypeATK[randomIndex];
-        System.out.println("Босс выбрал: " + bossDEF);
+        System.out.println("Р‘РѕСЃСЃ РІС‹Р±СЂР°Р»: " + bossDEF);
     }
     public static void statistics(){
-        System.out.println("__________Раунд " + roundNumber + "__________");
-        System.out.println("Здоровье босса: " + bossHP + " (" + bossDMG +" единиц урона)");
+        System.out.println("__________Р Р°СѓРЅРґ " + roundNumber + "__________");
+        System.out.println("Р—РґРѕСЂРѕРІСЊРµ Р±РѕСЃСЃР°: " + bossHP + " (" + bossDMG +" РµРґРёРЅРёС† СѓСЂРѕРЅР°)");
         for (int i = 0; i < heroesHP.length; i++) {
-            System.out.println(heroesTypeATK[i] + "; Здоровье героя: " + heroesHP[i] + " (" + heroesDMG[i] + " единиц урона)");
+            System.out.println(heroesTypeATK[i] + "; Р—РґРѕСЂРѕРІСЊРµ РіРµСЂРѕСЏ: " + heroesHP[i] + " (" + heroesDMG[i] + " РµРґРёРЅРёС† СѓСЂРѕРЅР°)");
         }
-        System.out.println("Здоровье везунчика "+luckyHP + " (" +luckyDMG + " единиц урона)");
-        System.out.println("Здоровье медика: " + healerHP + " единиц здоровья");
+        System.out.println("Р—РґРѕСЂРѕРІСЊРµ РІРµР·СѓРЅС‡РёРєР° "+luckyHP + " (" +luckyDMG + " РµРґРёРЅРёС† СѓСЂРѕРЅР°)");
+        System.out.println("Р—РґРѕСЂРѕРІСЊРµ РјРµРґРёРєР°: " + healerHP + " РµРґРёРЅРёС† Р·РґРѕСЂРѕРІСЊСЏ");
 
     }
     public static boolean isGameFinished() {
         if (bossHP <= 0) {
-            System.out.println("Герои победили!");
+            System.out.println("Р“РµСЂРѕРё РїРѕР±РµРґРёР»Рё!");
             return true;
         }
         boolean allHeroesDead = true;
@@ -55,7 +55,7 @@ public class Main {
             }
         }
         if (allHeroesDead){
-            System.out.println("Босс победил!");
+            System.out.println("Р‘РѕСЃСЃ РїРѕР±РµРґРёР»!");
         }
         return allHeroesDead;
     }
@@ -75,10 +75,10 @@ public class Main {
         if (!random.nextBoolean()){
             if( luckyHP > 0) {
                 luckyHP = luckyHP - bossDMG;
-                System.out.println("Везунчику не повезло");
+                System.out.println("Р’РµР·СѓРЅС‡РёРєСѓ РЅРµ РїРѕРІРµР·Р»Рѕ");
             }
         }else {
-            System.out.println("Везунчик улонился от атаки босса!");
+            System.out.println("Р’РµР·СѓРЅС‡РёРє СѓР»РѕРЅРёР»СЃСЏ РѕС‚ Р°С‚Р°РєРё Р±РѕСЃСЃР°!");
         }
         if (luckyHP < 0){
             luckyHP = 0;
@@ -105,7 +105,7 @@ public class Main {
                 } else {
                     bossHP = bossHP - critDMG;
                 }
-                System.out.println("Критический урон: " + critDMG + " единиц");
+                System.out.println("РљСЂРёС‚РёС‡РµСЃРєРёР№ СѓСЂРѕРЅ: " + critDMG + " РµРґРёРЅРёС†");
             }else {
                 if (bossHP - heroesDMG[i] <= 0) {
                     bossHP = 0;
@@ -119,7 +119,7 @@ public class Main {
         for (int i = 0; i < heroesHP.length; i++) {
             if (heroesHP[i] < 100 && heroesHP[i] > 0 && healerHP > 0){
                 heroesHP[i]= heroesHP[i] + 40;
-                System.out.println("Медик восстановил 40 единиц здоровья члену команды");
+                System.out.println("РњРµРґРёРє РІРѕСЃСЃС‚Р°РЅРѕРІРёР» 40 РµРґРёРЅРёС† Р·РґРѕСЂРѕРІСЊСЏ С‡Р»РµРЅСѓ РєРѕРјР°РЅРґС‹");
                 break;
             }
         }
@@ -132,4 +132,3 @@ public class Main {
             bossHP = 0;
         }
     }
-}
